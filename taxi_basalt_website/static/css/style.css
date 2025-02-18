@@ -15,8 +15,8 @@
   --black: 0, 0, 0;
 }
 
-/************************ 
-    Reset css 
+/************************
+    Reset css
 ***********************/
 * {
   margin: 0;
@@ -58,8 +58,8 @@ section,
   color: rgba(var(--theme-color), 1) !important;
 }
 
-/************************ 
-    Typography css 
+/************************
+    Typography css
 ***********************/
 body {
   position: relative;
@@ -124,7 +124,7 @@ li {
 }
 
 /*********************
-    Button css 
+    Button css
 **********************/
 .btn {
   padding: calc(8px + 2 * (100vw - 320px) / 1600) calc(15px + 5 * (100vw - 320px) / 1600);
@@ -237,7 +237,7 @@ li {
 }
 
 /***************************
-    Title css 
+    Title css
 ****************************/
 .title {
   margin-bottom: calc(20px + 20 * (100vw - 320px) / 1600);
@@ -268,7 +268,7 @@ li {
 }
 
 /************************
-    header section 
+    header section
  ************************/
 header {
   position: absolute;
@@ -322,7 +322,7 @@ header.sticky .navbar-nav .nav-item .nav-link:hover {
   margin-left: auto;
 }
 .navbar .logo {
-  height: calc(25px + 15 * (100vw - 320px) / 1600);
+  height: calc(25px + 15 * (100vw - 320px) / 300);
 }
 .navbar .navbar-toggler {
   padding: 0;
@@ -394,7 +394,7 @@ header.sticky .navbar-nav .nav-item .nav-link:hover {
 }
 
 /***********************
-    home section 
+    home section
 ************************/
 .home-wrapper {
   background-image: url(../images/background/home-bg.png);
@@ -507,7 +507,7 @@ header.sticky .navbar-nav .nav-item .nav-link:hover {
 }
 
 /***********************
-    app section 
+    app section
 ************************/
 .app-banner {
   width: 100%;
@@ -522,7 +522,7 @@ header.sticky .navbar-nav .nav-item .nav-link:hover {
 }
 
 /***********************
-    application section 
+    application section
 ************************/
 .application-wrapper {
   position: relative;

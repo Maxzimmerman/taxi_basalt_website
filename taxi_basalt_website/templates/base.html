@@ -8,19 +8,19 @@
   <meta name="description" content="taxify">
   <meta name="keywords" content="taxify">
   <meta name="author" content="taxify">
-  <link rel="icon" href="{% static 'images/logo/favicon.png' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'images/firmenlogo.gif' %}" type="image/x-icon">
   <title>
     {% block title %}
       taxi_basalt_website
     {% endblock title %}
   </title>
-  <link rel="icon" href="{% static 'images/logo/favicon.png' %}" type="image/x-icon">
-  <link rel="apple-touch-icon" href="{% static 'images/logo/favicon.png' %}">
+  <link rel="icon" href="{% static 'images/firmenlogo.gif' %}" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{% static 'images/firmenlogo.gif' %}">
   <meta name="theme-color" content="#7C57FF">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="taxify">
-  <meta name="msapplication-TileImage" content="{% static 'images/logo/favicon.png' %}">
+  <meta name="msapplication-TileImage" content="{% static 'images/firmenlogo.gif' %}">
   <meta name="msapplication-TileColor" content="#FFFFFF">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -86,8 +86,8 @@
                         <i class="iconsax icon" data-icon="text-align-left"></i>
                     </span>
       </button>
-      <a href="index.html">
-        <img class="img-fluid logo" src="{% static 'images/logo/logo.png' %}" alt="logo">
+      <a href="{% url 'home' %}">
+        <img class="img-fluid logo" src="{% static 'images/firmenlogo.gif' %}" alt="logo">
       </a>
       <a target="_blank" href="https://themeforest.net/user/pixelstrap/portfolio"
          class="btn purchase-btn order-xl-2">
@@ -96,26 +96,22 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#feature">Feature</a>
+            <a class="nav-link" href="#service">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#screenshot">Screenshot</a>
+            <a class="nav-link" href="#screenshot">Fuhrpark</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#inner-page">Inner Pages</a>
+            <a class="nav-link" href="#inner-page">Anfahrt</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#core">Core Feature</a>
+            <a class="nav-link" href="#core">Impressum</a>
           </li>
-
           <li class="nav-item">
-            <a class="nav-link" href="https://docs.pixelstrap.net/pwa/taxify/document"
-               target="_blank">Documentation</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="https://www.pixelstrap.com/hire-us" target="_blank">Hire Us</a>
+            <a class="nav-link" href="#core">Datenschutz</a>
           </li>
         </ul>
       </div>
