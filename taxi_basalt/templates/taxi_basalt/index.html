@@ -1,0 +1,401 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- home section starts -->
+<section class="home-wrapper" id="home">
+  <div class="custom-container h-100">
+    <div class="row h-100">
+      <div class="col-xl-5">
+        <div class="home-content" data-aos="fade-right" data-aos-duration="1500">
+          <div>
+            <h5>Taxi Booking Service </h5>
+            <h1><span> Taxify </span> PWA Mobile HTML Template</h1>
+            <p>We are just interested in making your life and design easier to use. Our primary purpose
+              is to relax your thoughts. purpose is to relax your thoughts.</p>
+
+            <div class="button-part">
+              <h6 class="border-0 lh-1"> Click To View : </h6>
+              <a target="_blank" href="https://themes.pixelstrap.com/pwa/taxify/user-app/"
+                 class="btn theme-btn d-inline-block"> User App </a>
+              <a target="_blank" href="https://themes.pixelstrap.com/pwa/taxify/driver-app/"
+                 class="btn theme-btn d-inline-block"> Driver App </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-7">
+        <div class="home-img">
+          <div class="phone" id="iframeContainer">
+            <iframe id="myIframe" class="img-fluid frame"
+                    src="https://themes.pixelstrap.com/pwa/taxify/user-app/"></iframe>
+          </div>
+
+          <div class="phone" id="iframeContainer">
+            <iframe id="myIframe" class="img-fluid frame"
+                    src="https://themes.pixelstrap.com/pwa/taxify/driver-app/"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img class="img-fluid car1" src="{% static 'images/car.png' %}" alt="car">
+</section>
+<!-- home section end -->
+
+<!-- app section starts -->
+<img class="img-fluid app-banner" src="{% static 'images/app-banner.png' %}" alt="app-banner">
+<!-- app section starts -->
+
+<!-- application section starts -->
+<section class="application-wrapper pt-0 section-b-space overflow-hidden">
+  <div class="custom-container">
+    <div>
+      <div class="row g-3 justify-content-center align-items-center">
+        <div class="col-md-5 order-md-1 order-2">
+          <div class="application-content" data-aos="fade-right" data-aos-duration="1500"
+               data-aos-delay="200">
+            <h2>Effortless Rides, Anytime, Anywhere</h2>
+            <p>Experience seamless travel with just a tap. Whether it's a ride to work, a night out, or
+              airport transfer, we've got you covered.</p>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center order-md-2 order-1">
+          <div class="application-img">
+            <img class="img-fluid app-img" src="{% static 'images/user-app.png' %}" alt="app">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 mt-md-5 mt-2">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <div class="application-img">
+            <img class="img-fluid app-img" src="{% static 'images/driver-app.png' %}" alt="app">
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="application-content" data-aos="fade-left" data-aos-duration="1500"
+               data-aos-delay="200">
+            <h2>Your Ride, Your Choice</h2>
+            <p>WDiscover the ultimate ride experience. From economy to luxury, our platform offers a
+              diverse range of options tailored to your preferences and budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class="img-fluid effect1" src="{% static 'images/effect.png' %}" alt="effect">
+  <img class="img-fluid effect2" src="{% static 'images/effect.png' %}" alt="effect">
+</section>
+<!-- application section end -->
+
+<!-- feature section start -->
+<section id="feature" class="features-wrapper section-b-space">
+  <div class="custom-container">
+
+    <div class="title text-center">
+      <h3 class="text-white">Why choose Taxify</h3>
+      <p>Texify build with gulp & scss, with clean and easy to understanding code texify has
+        free 6 month support.with depth documentation can start project easily.</p>
+    </div>
+    <div class="row g-sm-4 g-3">
+      <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        <div class="card-body">
+          <div class="icon-box">
+            <img class="card-logo" src="{% static 'images/product/1.svg' %}" alt="f1">
+          </div>
+          <h5>PWA ready</h5>
+          <p class="card-text">Taxify is a PWA App which looks and feels same like Application.
+            With the
+            Add
+            to Home Screen option you can use Website like an App.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="card-body">
+          <div class="icon-box">
+            <img class="card-logo" src="{% static 'images/product/2.svg' %}" alt="f2">
+          </div>
+          <h5>App Style Design</h5>
+          <p class="card-text">Taxify has a really distinctive and imaginative design that
+            resembles
+            applications. Taxify features a lot of app-style design.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="card-body">
+          <div class="icon-box">
+            <img class="card-logo" src="{% static 'images/product/3.svg' %}" alt="f3">
+          </div>
+          <h5>Free Map Integration</h5>
+          <p class="card-text">A starting point in Google Maps integration is to create a project
+            in
+            Google Cloud Console.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <div class="card-body">
+          <div class="icon-box">
+            <img class="card-logo" src="{% static 'images/product/4.svg' %}" alt="f4">
+          </div>
+          <h5>Dark & Light Mode</h5>
+          <p class="card-text">A helpful tool for those who work overnight. The dark background
+            will put
+            less strain on the eyes.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+        <div class="card-body">
+          <div class="icon-box">
+            <img class="card-logo" src="{% static 'images/product/5.svg' %}" alt="f5">
+          </div>
+          <h5>RTL Support</h5>
+          <p class="card-text">Design your website LTR or RTL , Taxify supports multi-languages so
+            its
+            easy
+            to design website on any layout such as arabic , urdu..</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+        <div class="card-body">
+          <div class="icon-box">
+            <img class="card-logo" src="{% static 'images/product/6.svg' %}" alt="f6">
+          </div>
+          <h5>80+ Pages</h5>
+          <p class="card-text">All of the pages needed for the food ordering procedure are
+            included in
+            Taxify. It has more than 80 pages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- feature section end -->
+
+<!-- screenshots section start -->
+<section id="screenshot" class="screenshots-section section-b-space overflow-hidden">
+  <div class="custom-container">
+    <div class="title text-center">
+      <h3>Taxify App Screenshots</h3>
+      <p>taxify is an app that lets you manage numerous browser tabs and configure various aspects of
+        your app, Some of the screens are shown below.</p>
+    </div>
+
+    <ul class="nav nav-pills screenshots-tab mt-0" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="user-app" data-bs-toggle="tab" data-bs-target="#user-app-pane"
+                type="button" role="tab" aria-controls="user-app-pane" aria-selected="true">User App
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="driver-app" data-bs-toggle="tab" data-bs-target="#driver-app-pane"
+                type="button" role="tab" aria-controls="driver-app-pane" aria-selected="false">Driver
+          App
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="user-app-pane" role="tabpanel" aria-labelledby="user-app"
+           tabindex="0">
+        <div class="swiper screenshots-slider user-slider">
+          <div class="swiper-wrapper screenshots-wrapper">
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/user1.png' %}" alt="s1">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/user2.png' %}" alt="s2">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/user3.png' %}" alt="s3">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/user4.png' %}" alt="s4">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/user5.png' %}" alt="s5">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="driver-app-pane" role="tabpanel" aria-labelledby="driver-app"
+           tabindex="0">
+        <div class="swiper screenshots-slider driver-slider">
+          <div class="swiper-wrapper screenshots-wrapper">
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/driver1.png' %}" alt="s1">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/driver2.png' %}" alt="s2">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/driver3.png' %}" alt="s3">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/driver4.png' %}" alt="s4">
+            </div>
+            <div class="swiper-slide screenshots">
+              <img class="img-fluid screen-img" src="{% static 'images/screenshort/driver5.png' %}" alt="s5">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class="img-fluid effect3" src="{% static 'images/effect.png' %}" alt="effect">
+  <img class="img-fluid effect4" src="{% static 'images/effect.png' %}" alt="effect">
+</section>
+<!-- screenshots section end -->
+
+<!-- inner-pages section starts -->
+<section id="inner-page" class="inner-page-wrapper section-b-space">
+  <div class="custom-container">
+    <div class="title text-center mb-0">
+      <h3>Taxify App Inner Pages</h3>
+      <p>Taxify app features almost 80+ screens, including all user app and driver app inner page screens.
+        some of the screens are shown below.</p>
+    </div>
+  </div>
+  <img class="img-fluid inner-page-img" src="{% static 'images/inner-pages.png' %}" alt="inner-pages">
+</section>
+<!-- inner-pages section starts -->
+
+<!-- app-feature section start -->
+<section id="core" class="app-features-sec section-b-space">
+  <div class="custom-container">
+    <div class="title text-center">
+      <h3>Taxify Core Features</h3>
+      <p>Taxify app features almost 80+ screens, including all user app and driver app screens.
+        some of the screens are shown below.</p>
+    </div>
+
+    <div class="feature-wepper">
+      <div class="row g-md-5 g-4">
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/1.svg' %}" alt="1">
+            </div>
+            <h5>Html</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/2.svg' %}" alt="2">
+            </div>
+            <h5>Bootstrap</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/3.svg' %}" alt="3">
+            </div>
+            <h5>SCSS</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/4.svg' %}" alt="4">
+            </div>
+            <h5>W3 Validation</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/5.svg' %}" alt="5">
+            </div>
+            <h5>SEO Friendly</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/6.svg' %}" alt="6">
+            </div>
+            <h5>7 Tier Framework</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/8.svg' %}" alt="8">
+            </div>
+            <h5>80+ Screens</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/10.svg' %}" alt="10">
+            </div>
+            <h5>Google Font</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/12.svg' %}" alt="12">
+            </div>
+            <h5>Easy Setup</h5>
+          </div>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/14.svg' %}" alt="14">
+            </div>
+            <h5>Clean & Simple Code</h5>
+          </div>
+        </div>
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/15.svg' %}" alt="15">
+            </div>
+            <h5>Well Documentation</h5>
+          </div>
+        </div>
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+             class="col-lg-3 col-md-4 col-sm-4 col-6 d-flex justify-content-center align-items-center">
+          <div class="feature-box">
+            <div class="core-feature">
+              <img class="img-fluid app-icons" src="{% static 'images/core/16.svg' %}" alt="16">
+            </div>
+            <h5>Customer Support</h5>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- app-feature section end -->
+{% endblock content %}

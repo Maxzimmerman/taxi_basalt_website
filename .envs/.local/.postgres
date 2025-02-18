@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=taxi_basalt_website
+POSTGRES_USER=YXFWLfhnLXezPDUkUhYShgckhbdfOTek
+POSTGRES_PASSWORD=rmu40f5dMkMXH73RZN7uSQs552MJLnzDb4MrbwmJxuBL9CSej92jbg1B4ZxeWzMP
