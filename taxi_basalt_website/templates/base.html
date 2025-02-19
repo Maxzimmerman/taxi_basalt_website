@@ -32,23 +32,18 @@
 
   {% block css %}
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-          integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"/>
     <!-- Your stuff: Third-party CSS libraries go here -->
     <!-- This file stores project-specific CSS -->
 
     <link href="{% static 'css/project.css' %}" rel="stylesheet"/>
     <!-- remixicon css -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/iconsax.css' %}}">
+    <link rel="stylesheet" href="{% static 'css/iconsax.css' %}}">
     <!-- bootstrap css -->
     <link rel="stylesheet" id="rtl-link" type="text/css" href="{% static 'css/vendors/bootstrap.css' %}">
     <!-- swiper css -->
     <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
     <!-- aos css -->
-    <link rel="stylesheet" type=" text/css" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="{% static 'css/style.css' %}">
 
@@ -98,20 +93,22 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
+          {% if current_page == 'home' %}
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#screenshot">Fuhrpark</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#inner-page">Anfahrt</a>
+            </li>
+          {% endif %}
           <li class="nav-item">
-            <a class="nav-link" href="#service">Services</a>
+            <a class="nav-link" href="{% url 'imprint' %}">Impressum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#screenshot">Fuhrpark</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#inner-page">Anfahrt</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#core">Impressum</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#core">Datenschutz</a>
+            <a class="nav-link" href="{% url 'data-protection' %}">Datenschutz</a>
           </li>
         </ul>
       </div>
@@ -137,9 +134,9 @@
 <!-- footer section start -->
 
 <!-- qr-code section starts -->
-<div class="qr-btn">
-  <img class="img-fluid qr-code" src="{% static 'images/qr-code.png' %}" alt="qr-code">
-</div>
+{#<div class="qr-btn">#}
+{#  <img class="img-fluid qr-code" src="{% static 'images/qr-code.png' %}" alt="qr-code">#}
+{#</div>#}
 <!-- qr-code section end -->
 
 <!-- tap to top start -->
