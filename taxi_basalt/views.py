@@ -14,6 +14,15 @@ class HomeView(TemplateView):
         request.current_page = "home"
         return super().dispatch(request, *args, **kwargs)
 
+
+class FindUsView(TemplateView):
+    template_name = "taxi_basalt/find_us.html"
+    which_page = "find_us"
+
+    def dispatch(self, request, *args, **kwargs):
+        request.current_page = "find_us"
+        return super().dispatch(request, *args, **kwargs)
+
 class ImprintView(TemplateView):
     template_name = 'taxi_basalt/imprint.html'
     which_page = "imprint"

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <section class="wrapper" id="home">
+    <div class="custom-container h-100">
+      <div class="row h-100">
+        <div class="col-xl-5">
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+          <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+          <script type="text/javascript">
+            function initMap() {
+              if (typeof google !== "undefined") {
+                new google.maps.Map(document.getElementById("map-canvas"), {
+                  center: {lat: 10, lng: 10},
+                  zoom: 14
+                });
+
+                new google.maps.marker.AdvancedMarkerElement({
+                  position: {lat: 10, lng: 10},
+                  map,
+                  title: "Location Marker"
+                });
+              } else {
+                console.error("Google Maps API not loaded!");
+              }
+            }
+
+          </script>
+          <div id="map-canvas"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
