@@ -31,37 +31,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
   {% block css %}
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    <!-- This file stores project-specific CSS -->
-
     <link href="{% static 'css/project.css' %}" rel="stylesheet"/>
-    <!-- remixicon css -->
-    <link rel="stylesheet" href="{% static 'css/iconsax.css' %}}">
-    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/iconsax.css' %}">
     <link rel="stylesheet" id="rtl-link" type="text/css" href="{% static 'css/vendors/bootstrap.css' %}">
-    <!-- swiper css -->
     <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
-    <!-- aos css -->
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
-    <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="{% static 'css/style.css' %}">
-
   {% endblock css %}
-  <!-- Le javascript
-      ================================================== -->
-  {# Placed at the top of the document so pages load faster with defer #}
+
   {% block javascript %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery_363.min.js' %}"></script>
     <script src="{% static 'js/aos.js' %}"></script>
     <script src="{% static 'js/iconsax.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'js/custom-swiper.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
     <script defer src="{% static 'js/project.js' %}"></script>
-
-
   {% endblock javascript %}
 </head>
 
@@ -210,7 +196,8 @@
 
 <!-- aos js -->
 {% block inline_javascript %}
-
+  <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 {% endblock inline_javascript %}
 </body>
 
