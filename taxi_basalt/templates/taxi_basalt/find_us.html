@@ -11,9 +11,9 @@
         action: "init",
         marker: {
           values: [{
-            latLng: [{{ location.latitude }}, {{ location.longitude }}],
+            latLng: [50.15833140170724, 8.631451502637596],
             options: {
-              icon: "{% static 'images/kua_square_logo.jpg' %}"
+              icon: "{% static 'images/firmenlogo.gif' %}"
             }
           }],
         },
@@ -89,9 +89,12 @@
 {% block content %}
 
   <section class="wrapper" id="home">
-    <div class="custom-container h-100">
+    <div class="custom-container h-100 my-5">
       <div class="row h-100">
-        <div class="col-xl-5">
+        <div class="col-xl-12">
+          <h1>Hier finden Sie uns!</h1>
+        </div>
+        <div class="col-xl-12">
           <div id="map-canvas"></div>
         </div>
       </div>
