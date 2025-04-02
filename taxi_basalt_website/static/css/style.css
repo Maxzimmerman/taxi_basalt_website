@@ -1430,3 +1430,31 @@ footer.fixed-footer .footer-social li a:hover {
     width: 250px;
   }
 }
+
+.firm-logo {
+  height: 100px;
+}
+
+@media screen and (max-width: 990px) {
+  .firm-logo {
+    height: 80px!important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .firm-logo {
+    height: 70px!important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .firm-logo {
+    height: 70px!important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .firm-logo {
+    height: 70px!important;
+  }
+}
