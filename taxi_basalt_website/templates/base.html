@@ -1,4 +1,4 @@
-{% load static i18n %}<!DOCTYPE html>
+{% load static i18n cookie_consent_tags %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -113,41 +113,41 @@
         <!-- Footer info -->
         <div class="">
           <div class="footer-item">
-            <h4 class="text-link">Fon</h4>
+            <h4 class="text-link">{{ footer_section.telephone_header }}</h4>
             <ul>
-              <li><a href="tel:069 97074980">069 97074980</a></li>
+              <li><a href="tel:{{ footer_section.telephone_text }}">{{ footer_section.telephone_text }}</a></li>
             </ul>
           </div>
         </div>
         <div class="">
           <div class="footer-item">
-            <h4 class="text-link">Fax</h4>
+            <h4 class="text-link">{{ footer_section.fax_header }}</h4>
             <ul>
-              <li>069 97074970</li>
+              <li>{{ footer_section.fax_text }}</li>
             </ul>
           </div>
         </div>
         <div class="">
           <div class="footer-item">
-            <h4 class="text-link">Mobil</h4>
+            <h4 class="text-link">{{ footer_section.mobile_header }}</h4>
             <ul>
-              <li>0171 3504742</li>
+              <li>{{ footer_section.mobile_text }}</li>
             </ul>
           </div>
         </div>
         <div class="">
           <div class="footer-item">
-            <h4 class="text-link">E-Mail</h4>
+            <h4 class="text-link">{{ footer_section.email_header }}</h4>
             <ul>
-              <li><a href="mailto:nfo@taxibasalt19.de">nfo@taxibasalt19.de</a></li>
+              <li><a href="mailto:{{ footer_section.email_text }}">{{ footer_section.email_text }}</a></li>
             </ul>
           </div>
         </div>
         <div class="">
           <div class="footer-item">
-            <h4 class="text-link">Taxi schule</h4>
+            <h4 class="text-link">{{ footer_section.website_header }}</h4>
             <ul>
-              <li><a href="">info@taxibasalt19.de</a></li>
+              <li><a href="{{ footer_section.website_text }}">{{ footer_section.website_text }}</a></li>
             </ul>
           </div>
         </div>
@@ -155,12 +155,10 @@
         <!-- Footer info end-->
         <div class="">
           <div class="footer-item">
-            <h4 class="text-link">Adresse</h4>
+            <h4 class="text-link">{{ footer_section.address_header }}</h4>
             <ul>
               <li>
-                <span>Frank Benner <br> Basaltstraße 19</span>
-                <br>
-                <span>60487 Frankfurt</span>
+                <span>{{ footer_section.address_text|linebreaks }}</span>
               </li>
               <li><a
                 href="https://maps.app.goo.gl/cwwr1ge757mZha2cA"
@@ -184,12 +182,115 @@
 <a class="scroll scroll-to-top">
   <i class="iconsax arrow" data-icon="chevron-up"></i>
 </a>
+
+<div id="modals-here"
+     class="modal modal-blur fade"
+     aria-hidden="false"
+     tabindex="-1">
+  <div class="cookie-info">
+    <div class="cookie-modal-close-button-wrapper">
+      <button type="button"
+              class="btn-close cookie-modal-close-button"
+              aria-label="Close"
+              onclick="buttonClose('close')"
+      >&#x2715;
+      </button>
+    </div>
+    <h1>Cookies</h1>
+    {% for cookie_group in cookies %}
+      <div class="cookie-group">
+        <div class="cookie-group-title">
+          <h3>{{ cookie_group.name }}</h3>
+        </div>
+        <p class="cookie-group-description">
+          {{ cookie_group.description }}
+        </p>
+        <table class="cookie-group-table">
+          {% for cookie in cookie_group.cookie_set.all %}
+            <tr>
+              <th style="text-align: left; padding-right: 5px;">
+                {{ cookie.name }}
+                {% if cookie.domain %}
+                  ({{ cookie.domain }})
+                {% endif %}
+              </th>
+              <td style="text-align: left;">
+                {% if cookie.description %}
+                  {{ cookie.description }}
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        {% if not cookie_group.is_required %}
+          <div class="cookie-group-form">
+            {% if request|cookie_group_accepted:cookie_group.varname %}
+              <span class="btn cookie-button cookie-info-button cookie-consent-selected">Angenommen</span>
+            {% else %}
+              <form class="cookie-consent-accept" action="{% url "cookie_consent_accept" cookie_group.varname %}"
+                    hx-post="{% url 'cookie_consent_accept' cookie_group.varname %}"
+                    hx-swap="none"
+                    hx-trigger="submit"
+                    method="POST"
+                    onsubmit="reload_page()">
+                {% csrf_token %}
+                <input class="btn cookie-button cookie-info-button" type="submit" value="Akzeptieren"
+                       onclick="buttonClose('close')">
+              </form>
+            {% endif %}
+
+            {% if request|cookie_group_declined:cookie_group.varname %}
+              <span class="btn cookie-button cookie-info-button cookie-consent-selected">Abgelehnt</span>
+            {% else %}
+              <form class="cookie-consent-decline" action="{% url "cookie_consent_decline" cookie_group.varname %}"
+                    hx-post="{% url 'cookie_consent_decline' cookie_group.varname %}"
+                    hx-swap="none"
+                    hx-trigger="submit"
+                    onsubmit="reload_page()">
+                {% csrf_token %}
+                <input class="btn cookie-button cookie-info-button" type="submit" value="Ablehnen"
+                       onclick="buttonClose('close')">
+              </form>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% if request|cookie_consent_enabled %}
+  {% not_accepted_or_declined_cookie_groups request as cookie_groups %}
+  {% cookie_consent_accept_url cookie_groups as url_accept %}
+  {% cookie_consent_decline_url cookie_groups as url_decline %}
+
+  <div class="cookie-bar">
+    <p>
+      Diese Website verwendet Cookies für eine bessere Leistung und Benutzererfahrung. Stimmen Sie der Verwendung von
+      Cookies zu?
+    </p>
+    <div class="cookie-bar-link-holder">
+      <form class="cookie-bar-link" method="post" action="{{ url_accept }}">
+        {% csrf_token %}
+        <button class="cookie-bar-button">Akueptieren</button>
+      </form>
+      <form class="cookie-bar-link" method="post" action="{{ url_decline }}">
+        {% csrf_token %}
+        <button class="cookie-bar-button">Ablehnen</button>
+      </form>
+      <button class="cookie-bar-link cookie-bar-button" onclick="buttonClose('open')">
+        Mehr Info
+      </button>
+    </div>
+  </div>
+{% endif %}
 <!-- tap to top end -->
 
 <!-- aos js -->
 {% block inline_javascript %}
   <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
 {% endblock inline_javascript %}
 </body>
 

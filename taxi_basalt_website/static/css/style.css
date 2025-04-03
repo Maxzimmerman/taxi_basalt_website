@@ -1498,3 +1498,46 @@ footer.fixed-footer .footer-social li a:hover {
   }
 }
 
+.cookie-bar {
+  background-color: black;
+  width: 100%;
+  height: 150px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.cookie-bar-link-holder {
+  display: flex;
+}
+
+.cookie-bar-link {
+  margin: 10px;
+}
+
+.cookie-bar-button {
+  background: none;
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 7px;
+  border-radius: 2px;
+}
+
+#modals-here {
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  display: none;
+  max-height: 90vh;
+  overflow-y: auto;
+}

@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.mfa",
     "allauth.socialaccount",
+    "cookie_consent"
 ]
 
 LOCAL_APPS = [
@@ -188,6 +189,8 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "taxi_basalt_website.users.context_processors.allauth_settings",
                 "taxi_basalt.context_processor.template_name_processor",
+                "taxi_basalt.context_processor.get_cookie_groups",
+                "taxi_basalt.context_processor.get_footer_section"
             ],
         },
     },
