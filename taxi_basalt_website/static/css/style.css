@@ -1380,10 +1380,6 @@ footer.fixed-footer .footer-social li a:hover {
   top: 60px;
 }
 
-.footer-item {
-  margin: 10px;
-}
-
 #map-canvas {
   position: relative;
   width: 100%;
@@ -1420,13 +1416,13 @@ footer.fixed-footer .footer-social li a:hover {
 }
 
 .feature-box-header {
-  text-align: left!important;
+  text-align: left !important;
   margin-bottom: 10px;
 }
 
 @media screen and (max-width: 400px) {
   .feature-box-custom-style {
-    height: 300px!important;
+    height: 300px !important;
     width: 250px;
   }
 }
@@ -1437,24 +1433,51 @@ footer.fixed-footer .footer-social li a:hover {
 
 @media screen and (max-width: 990px) {
   .firm-logo {
-    height: 80px!important;
+    height: 80px !important;
   }
 }
 
 @media screen and (max-width: 700px) {
   .firm-logo {
-    height: 70px!important;
+    height: 70px !important;
   }
 }
 
 @media screen and (max-width: 700px) {
   .firm-logo {
-    height: 70px!important;
+    height: 70px !important;
   }
 }
 
 @media screen and (max-width: 700px) {
   .firm-logo {
-    height: 70px!important;
+    height: 70px !important;
   }
 }
+
+.footer-elements {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 700px) {
+  .footer-elements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .footer-elements {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer-item {
+    display: flex;
+    justify-content: center; /* Centers content horizontally inside the item */
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
