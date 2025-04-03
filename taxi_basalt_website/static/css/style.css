@@ -1279,6 +1279,8 @@ footer.fixed-footer .footer-social li a:hover {
 
 .footer-item .text-link {
   color: black;
+  margin-bottom: 5px;
+  margin-top: 7px;
 }
 
 .footer-item .text-link:before {
