@@ -183,38 +183,28 @@
   <i class="iconsax arrow" data-icon="chevron-up"></i>
 </a>
 
-<div id="modals-here"
-     class="modal modal-blur fade"
-     aria-hidden="false"
-     tabindex="-1">
+<div id="modals-here">
   <div class="cookie-info">
     <div class="cookie-modal-close-button-wrapper">
       <button type="button"
-              class="btn-close cookie-modal-close-button"
-              aria-label="Close"
+              class="cookie-modal-close-button"
               onclick="buttonClose('close')"
       >&#x2715;
       </button>
     </div>
-    <h1>Cookies</h1>
+    <h1 class="cookie-header">Cookies</h1>
     {% for cookie_group in cookies %}
-      <div class="cookie-group">
-        <div class="cookie-group-title">
-          <h3>{{ cookie_group.name }}</h3>
-        </div>
-        <p class="cookie-group-description">
-          {{ cookie_group.description }}
-        </p>
+      <div>
         <table class="cookie-group-table">
           {% for cookie in cookie_group.cookie_set.all %}
-            <tr>
-              <th style="text-align: left; padding-right: 5px;">
+            <tr class="cookie-content-holder">
+              <th>
                 {{ cookie.name }}
                 {% if cookie.domain %}
                   ({{ cookie.domain }})
                 {% endif %}
               </th>
-              <td style="text-align: left;">
+              <td>
                 {% if cookie.description %}
                   {{ cookie.description }}
                 {% endif %}
@@ -223,32 +213,23 @@
           {% endfor %}
         </table>
         {% if not cookie_group.is_required %}
-          <div class="cookie-group-form">
+          <div class="cookie-bar-button-holder">
             {% if request|cookie_group_accepted:cookie_group.varname %}
-              <span class="btn cookie-button cookie-info-button cookie-consent-selected">Angenommen</span>
+              <span class="btn theme-btn cookie-bar-button cookie-bar-declined-or-accepted-text">Angenommen</span>
             {% else %}
-              <form class="cookie-consent-accept" action="{% url "cookie_consent_accept" cookie_group.varname %}"
-                    hx-post="{% url 'cookie_consent_accept' cookie_group.varname %}"
-                    hx-swap="none"
-                    hx-trigger="submit"
-                    method="POST"
-                    onsubmit="reload_page()">
+              <form action="{% url "cookie_consent_accept" cookie_group.varname %}" method="POST">
                 {% csrf_token %}
-                <input class="btn cookie-button cookie-info-button" type="submit" value="Akzeptieren"
+                <input class="btn theme-btn cookie-bar-button cookie-butto reload-aftern" type="submit" value="Akzeptieren"
                        onclick="buttonClose('close')">
               </form>
             {% endif %}
 
             {% if request|cookie_group_declined:cookie_group.varname %}
-              <span class="btn cookie-button cookie-info-button cookie-consent-selected">Abgelehnt</span>
+              <span class="btn theme-btn cookie-bar-button cookie-bar-declined-or-accepted-text">Abgelehnt</span>
             {% else %}
-              <form class="cookie-consent-decline" action="{% url "cookie_consent_decline" cookie_group.varname %}"
-                    hx-post="{% url 'cookie_consent_decline' cookie_group.varname %}"
-                    hx-swap="none"
-                    hx-trigger="submit"
-                    onsubmit="reload_page()">
+              <form action="{% url "cookie_consent_decline" cookie_group.varname %}" method="POST">
                 {% csrf_token %}
-                <input class="btn cookie-button cookie-info-button" type="submit" value="Ablehnen"
+                <input class="btn theme-btn cookie-bar-button reload-after" type="submit" value="Ablehnen"
                        onclick="buttonClose('close')">
               </form>
             {% endif %}
@@ -260,32 +241,46 @@
 </div>
 
 {% if request|cookie_consent_enabled %}
-  {% not_accepted_or_declined_cookie_groups request as cookie_groups %}
-  {% cookie_consent_accept_url cookie_groups as url_accept %}
-  {% cookie_consent_decline_url cookie_groups as url_decline %}
+  {% with if_all_cookie_accepted=request|all_cookies_accepted %}
+    {% not_accepted_or_declined_cookie_groups request as cookie_groups %}
+    {% cookie_consent_accept_url cookie_groups as url_accept %}
+    {% cookie_consent_decline_url cookie_groups as url_decline %}
 
-  <div class="cookie-bar">
-    <p>
-      Diese Website verwendet Cookies für eine bessere Leistung und Benutzererfahrung. Stimmen Sie der Verwendung von
-      Cookies zu?
-    </p>
-    <div class="cookie-bar-link-holder">
-      <form class="cookie-bar-link" method="post" action="{{ url_accept }}">
-        {% csrf_token %}
-        <button class="cookie-bar-button">Akueptieren</button>
-      </form>
-      <form class="cookie-bar-link" method="post" action="{{ url_decline }}">
-        {% csrf_token %}
-        <button class="cookie-bar-button">Ablehnen</button>
-      </form>
-      <button class="cookie-bar-link cookie-bar-button" onclick="buttonClose('open')">
-        Mehr Info
-      </button>
-    </div>
-  </div>
+    {% if not if_all_cookie_accepted %}
+      <div class="cookie-bar">
+        <p>
+          Diese Website verwendet Cookies für eine bessere Leistung und Benutzererfahrung. Stimmen Sie der Verwendung
+          von
+          Cookies zu?
+        </p>
+        <div class="cookie-bar-link-holder">
+          <form class="cookie-bar-link" method="post" action="{{ url_accept }}">
+            {% csrf_token %}
+            <button class="btn theme-btn cookie-bar-button reload-after">Akueptieren</button>
+          </form>
+          <form class="cookie-bar-link" method="post" action="{{ url_decline }}">
+            {% csrf_token %}
+            <button class="btn theme-btn cookie-bar-button reload-after">Ablehnen</button>
+          </form>
+          <button class="btn theme-btn cookie-bar-link cookie-bar-button" onclick="buttonClose('open')">
+            Mehr Info
+          </button>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const elements = document.querySelectorAll(".reload-after");
+          elements.forEach(element => {
+            element.addEventListener('click', () => {
+              location.reload();
+            });
+          });
+        });
+      </script>
+    {% endif %}
+  {% endwith %}
 {% endif %}
 <!-- tap to top end -->
-
 <!-- aos js -->
 {% block inline_javascript %}
   <script type="text/javascript" src="{% static 'js/map.js' %}"></script>

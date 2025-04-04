@@ -1522,22 +1522,59 @@ footer.fixed-footer .footer-social li a:hover {
 }
 
 .cookie-bar-button {
-  background: none;
   background-color: white;
-  border: none;
   color: black;
-  padding: 7px;
-  border-radius: 2px;
+}
+
+.cookie-bar-button:hover {
+  cursor: pointer;
 }
 
 #modals-here {
+  display: none;
   z-index: 1000;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: black;
-  display: none;
-  max-height: 90vh;
+  max-height: 100vh;
   overflow-y: auto;
+  padding: 30px;
+  color: white;
+  border-radius: 10px;
+  width: 360px;
+}
+
+.cookie-modal-close-button-wrapper {
+  position: fixed;
+  top: 15px;
+  right: 25px;
+}
+
+.cookie-modal-close-button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 24px
+}
+
+.cookie-header {
+  margin-bottom: 35px;
+}
+
+.cookie-content-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cookie-bar-button-holder {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-bar-declined-or-accepted-text {
+  background: none!important;
 }

@@ -21,7 +21,7 @@ from django.db import models
 #
 # class Service(models.Model):
 #     title = models.CharField("Titel", max_length=100)
-#     detail_title = models.CharField("Detail Titel", max_length=100)
+#     detail_title = models.CharField("Detail Titel", max_length=100, null=True, blank=True)
 #     text = models.CharField("Text", max_length=200)
 #     home_section = models.ForeignKey(
 #         ServiceSection,
