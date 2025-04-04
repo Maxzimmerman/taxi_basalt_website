@@ -11,7 +11,7 @@
   <link rel="icon" href="{% static 'images/firmenlogo.gif' %}" type="image/x-icon">
   <title>
     {% block title %}
-      taxi_basalt_website
+      taxibasalt19
     {% endblock title %}
   </title>
   <link rel="icon" href="{% static 'images/firmenlogo.gif' %}" type="image/x-icon">
@@ -31,6 +31,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
   {% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="{% static 'css/project.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'css/iconsax.css' %}">
     <link rel="stylesheet" id="rtl-link" type="text/css" href="{% static 'css/vendors/bootstrap.css' %}">
@@ -48,6 +51,8 @@
     <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'js/custom-swiper.js' %}"></script>
     <script defer src="{% static 'js/project.js' %}"></script>
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/reload-page.js' %}"></script>
   {% endblock javascript %}
 </head>
 
@@ -217,9 +222,14 @@
             {% if request|cookie_group_accepted:cookie_group.varname %}
               <span class="btn theme-btn cookie-bar-button cookie-bar-declined-or-accepted-text">Angenommen</span>
             {% else %}
-              <form action="{% url "cookie_consent_accept" cookie_group.varname %}" method="POST">
+              <form action="{% url "cookie_consent_accept" cookie_group.varname %}"
+                    method="POST"
+                    hx-post="{% url 'cookie_consent_accept' cookie_group.varname %}"
+                    hx-swap="none"
+                    hx-trigger="submit">
                 {% csrf_token %}
-                <input class="btn theme-btn cookie-bar-button cookie-butto reload-aftern" type="submit" value="Akzeptieren"
+                <input class="btn theme-btn cookie-bar-button cookie-butto reload-after" type="submit"
+                       value="Akzeptieren"
                        onclick="buttonClose('close')">
               </form>
             {% endif %}
@@ -227,7 +237,11 @@
             {% if request|cookie_group_declined:cookie_group.varname %}
               <span class="btn theme-btn cookie-bar-button cookie-bar-declined-or-accepted-text">Abgelehnt</span>
             {% else %}
-              <form action="{% url "cookie_consent_decline" cookie_group.varname %}" method="POST">
+              <form action="{% url "cookie_consent_decline" cookie_group.varname %}"
+                    method="POST"
+                    hx-post="{% url 'cookie_consent_decline' cookie_group.varname %}"
+                    hx-swap="none"
+                    hx-trigger="submit">
                 {% csrf_token %}
                 <input class="btn theme-btn cookie-bar-button reload-after" type="submit" value="Ablehnen"
                        onclick="buttonClose('close')">
@@ -245,8 +259,7 @@
     {% not_accepted_or_declined_cookie_groups request as cookie_groups %}
     {% cookie_consent_accept_url cookie_groups as url_accept %}
     {% cookie_consent_decline_url cookie_groups as url_decline %}
-
-    {% if not if_all_cookie_accepted %}
+    {% if cookie_groups %}
       <div class="cookie-bar">
         <p>
           Diese Website verwendet Cookies für eine bessere Leistung und Benutzererfahrung. Stimmen Sie der Verwendung
@@ -254,11 +267,22 @@
           Cookies zu?
         </p>
         <div class="cookie-bar-link-holder">
-          <form class="cookie-bar-link" method="post" action="{{ url_accept }}">
+          <form class="cookie-bar-link"
+                method="post"
+                href="{{ url_accept }}"
+                hx-post="{{ url_accept }}"
+                hx-swap="none"
+                hx-trigger="submit">
             {% csrf_token %}
             <button class="btn theme-btn cookie-bar-button reload-after">Akueptieren</button>
           </form>
-          <form class="cookie-bar-link" method="post" action="{{ url_decline }}">
+          <form class="cookie-bar-link"
+                method="post"
+                action="{{ url_decline }}"
+                hx-post="{{ url_decline }}"
+                hx-swap="none"
+                hx-trigger="submit"
+          >
             {% csrf_token %}
             <button class="btn theme-btn cookie-bar-button reload-after">Ablehnen</button>
           </form>
@@ -267,16 +291,6 @@
           </button>
         </div>
       </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const elements = document.querySelectorAll(".reload-after");
-          elements.forEach(element => {
-            element.addEventListener('click', () => {
-              location.reload();
-            });
-          });
-        });
-      </script>
     {% endif %}
   {% endwith %}
 {% endif %}
@@ -288,5 +302,4 @@
   <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
 {% endblock inline_javascript %}
 </body>
-
 </html>

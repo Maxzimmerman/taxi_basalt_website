@@ -66,9 +66,3 @@ class FooterSection(models.Model):
     address_header = models.CharField("Adresse Kopf Text", max_length=100)
     address_text = models.TextField("Adresse Text")
     logo = models.ImageField("Logo", upload_to="footer/")
-
-
-
-
-
-
