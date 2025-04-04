@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
 from .mixins import WhichPageMixin
+from .models import (HomeSection, ServiceSection,
+                     Service, VehicleSection, Vehicle)
 
 # Create your views here.
 
@@ -9,6 +11,13 @@ from .mixins import WhichPageMixin
 class HomeView(TemplateView):
     template_name = "taxi_basalt/index.html"
     which_page = "home"
+
+    def get_context_data(self, **kwargs):
+        context = super(**kwargs).get_context_data(**kwargs)
+        context['home'] = HomeSection.objects.first()
+        context['service_sections'] = ServiceSection.objects.prefetch_related('services')
+        context['vehicle_sections'] = VehicleSection.objects.prefetch_related('vehicles')
+        return context
 
     def dispatch(self, request, *args, **kwargs):
         request.current_page = "home"

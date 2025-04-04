@@ -1,143 +1,76 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static yellow_text %}
 
 {% block content %}
-  <!-- home section starts -->
   <section class="home-wrapper" id="home">
     <div class="custom-container h-100">
       <div class="row h-100">
         <div class="col-xl-6">
           <div class="home-content here-sections" data-aos="fade-right" data-aos-duration="1500">
             <div>
-              <h1><span> Taxibasalt 19 <br> </span> Ihr Weg – unser Auftrag Taxibetrieb Basaltstraße
-              </h1>
-              <p>Willkommen bei Taxibasalt 19 – Ihrem zuverlässigen Partner für sichere und komfortable Krankenfahrten in Frankfurt am Main und Umgebung.</p>
+              <h1><span> {{ home.hero_header|yellow_text }} <br> </span> {{ home.hero_header|normal_text }} </h1>
+              <p>{{ home.hero_text }}</p>
 
               <div class="button-part">
-                <h6 class="border-0 lh-1"> Besuche unsere App : </h6>
+                <h6 class="border-0 lh-1"> Buche eine Fahrt über unsere App : </h6>
                 <a target="_blank" href="https://themes.pixelstrap.com/pwa/taxify/driver-app/"
-                   class="btn theme-btn d-inline-block"> App </a>
+                   class="btn theme-btn d-inline-block"> {{ home.hero_button_text }} </a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-xl-6 here-sections">
-          <img style="border-radius: 10px" src="{% static 'images/hero.jpg' %}">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- home section end -->
-
-
-  <section id="services" class="app-features-sec section-b-space">
-    <div class="custom-container">
-      <div class="title text-center">
-        <h3>Wir bieten</h3>
-      </div>
-
-      <div class="feature-wepper">
-        <div class="row g-md-5 g-4 feature-box-wrapper">
-          <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
-               class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <div class="feature-box feature-box-custom-style">
-              <h3 class="feature-box-header">Krankenfahrten <br><span class="feature-box-detail-header">(Dialyse, Chemo, Bestrahlung, Serienfahrten aller Art)</span> </h3>
-              <p>Vertrauen Sie auf unseren zuverlässigen Transport für Ihre medizinischen Fahrten.
-                Wir bieten sicheren und komfortablen Transport zu regelmäßigen Behandlungen wie Dialyse,
-                Chemotherapie, Bestrahlung oder anderen Serienfahrten – stets pünktlich und mit besonderer
-                Rücksichtnahme auf Ihre Bedürfnisse.</p>
-            </div>
-          </div>
-
-          <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
-               class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <div class="feature-box feature-box-custom-style">
-              <h3 class="feature-box-header">Rollstuhlfahrten</h3>
-              <p>Unsere speziell ausgestatteten Fahrzeuge sorgen dafür, dass Sie sicher und bequem in
-                einem Rollstuhl transportiert werden. Mit viel Erfahrung und Einfühlungsvermögen bringen
-                wir Sie an Ihr Ziel, ob zum Arzt, ins Krankenhaus oder zu anderen wichtigen Terminen.</p>
-            </div>
-          </div>
-
-          <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
-               class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <div class="feature-box feature-box-custom-style">
-              <h3 class="feature-box-header">Direktabrechnung <br> <span class="feature-box-detail-header">mit allen gesetzlichen Krankenkassen</span> </h3>
-              <p>Wir kümmern uns um die Abrechnung direkt mit Ihrer gesetzlichen Krankenkasse.
-                So können Sie sich ganz auf Ihre Behandlung konzentrieren,
-                ohne sich um die finanziellen Aspekte der Fahrt sorgen zu müssen.
-                Ein zusätzlicher Service, der den Prozess für Sie erleichtert.</p>
-            </div>
-          </div>
-
-          <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
-               class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <div class="feature-box feature-box-custom-style">
-              <h3 class="feature-box-header">Schulkinderfahrten</h3>
-              <p>Ihre Kinder sind bei uns in sicheren Händen! Wir bieten pünktlichen und sicheren
-                Transport zu Schulen und zurück. Unser geschultes Personal sorgt für eine zuverlässige
-                und verantwortungsvolle Beförderung, damit sich sowohl Kinder als auch Eltern wohlfühlen.</p>
-            </div>
-          </div>
-
-          <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
-               class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <div class="feature-box feature-box-custom-style">
-              <h3 class="feature-box-header">Flughafentransfers</h3>
-              <p>Starten Sie stressfrei in den Urlaub oder Ihre Geschäftsreise.
-                Mit unseren Flughafentransfers bringen wir Sie zuverlässig und komfortabel
-                zu allen wichtigen Flughäfen in der Region und holen Sie auch
-                gerne wieder ab – pünktlich, sicher und bequem.</p>
-            </div>
-          </div>
-
-          <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
-               class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <div class="feature-box feature-box-custom-style">
-              <h3 class="feature-box-header">Kreditfahrten</h3>
-              <p>Auch in schwierigen Zeiten lassen wir Sie nicht alleine! Wir bieten flexible Kreditfahrten
-                an, die Ihnen ermöglichen, wichtige Termine wahrzunehmen, auch wenn Sie die Fahrt zunächst
-                nicht direkt bezahlen können. Sprechen Sie uns an – wir finden eine Lösung.</p>
-            </div>
-          </div>
+          <img style="border-radius: 10px" src="{{ home.hero_image.url }}">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- feature section start -->
-  <section id="vehicles" class="features-wrapper section-b-space">
-    <div class="custom-container">
+  {% for service_section in service_sections %}
+    <section id="services" class="app-features-sec section-b-space">
+      <div class="custom-container">
+        <div class="title text-center">
+          <h3>{{ service_section.header }}</h3>
+        </div>
 
-      <div class="title text-center">
-        <h3 class="text-white">Unsere Fahrzeugflotte umfasst inzwischen 19-Mercedes Fahrzeuge.</h3>
-        <p>Alle Fahrzeuge sind maximal drei Jahre alt.</p>
-      </div>
-      <div class="row g-sm-4 g-3">
-        <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <div id="vehicle1" class="card-body">
-            <h5>E-Klasse Limousine</h5>
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <div id="vehicle2" class="card-body">
-            <h5>E-Klasse Kombis</h5>
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-          <div id="vehicle3" class="card-body">
-            <h5>vier Großraumtaxen (Vito)</h5>
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-          <div id="vehicle4" class="card-body">
-            <h5>und ein spezielles Rollstuhlfahrzeug.</h5>
+        <div class="feature-wepper">
+          <div class="row g-md-5 g-4 feature-box-wrapper">
+            {% for service in service_section.services.all %}
+              <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
+                   class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
+                <div class="feature-box feature-box-custom-style">
+                  <h3 class="feature-box-header">{{ service.title }} <br><span
+                    class="feature-box-detail-header">{% if service.detail_text %}
+                    {{ service.detail_title }}{% endif %}</span>
+                  </h3>
+                  <p>{{ service.text }}</p>
+                </div>
+              </div>
+            {% endfor %}
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- feature section end -->
+    </section>
+  {% endfor %}
 
-  <!-- app-feature section end -->
+  {% for vehicle_section in vehicle_sections %}
+    <section id="vehicles" class="features-wrapper section-b-space">
+      <div class="custom-container">
+
+        <div class="title text-center">
+          <h3 class="text-white">{{ vehicle_section.header }}</h3>
+          <p>{{ vehicle_section.text }}</p>
+        </div>
+        <div class="row g-sm-4 g-3">
+          {% for vehicle in vehicle_section.vehicles.all %}
+            <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+              <div id="vehicle1" class="card-body">
+                <h5>{{ vehicle.header }}</h5>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endfor %}
 {% endblock content %}
