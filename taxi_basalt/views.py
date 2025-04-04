@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.views import View
 from .mixins import WhichPageMixin
 from .models import (HomeSection, ServiceSection,
-                     Service, VehicleSection, Vehicle)
+                     Service, VehicleSection, Vehicle, Imprint, FindUs)
 
 # Create your views here.
 
@@ -28,6 +28,11 @@ class FindUsView(TemplateView):
     template_name = "taxi_basalt/find_us.html"
     which_page = "find_us"
 
+    def get_context_data(self, **kwargs):
+        context = super(**kwargs).get_context_data(**kwargs)
+        context['find_us'] = FindUs.objects.first()
+        return context
+
     def dispatch(self, request, *args, **kwargs):
         request.current_page = "find_us"
         return super().dispatch(request, *args, **kwargs)
@@ -35,6 +40,11 @@ class FindUsView(TemplateView):
 class ImprintView(TemplateView):
     template_name = 'taxi_basalt/imprint.html'
     which_page = "imprint"
+
+    def get_context_data(self, **kwargs):
+        context = super(**kwargs).get_context_data(**kwargs)
+        context['imprint'] = Imprint.objects.first()
+        return context
 
     def dispatch(self, request, *args, **kwargs):
         request.current_page = "imprint"

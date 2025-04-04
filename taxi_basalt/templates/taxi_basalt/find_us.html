@@ -10,7 +10,7 @@
 
     <script type="text/javascript">
       function initMap() {
-        var location = {lat: 50.15833140170724, lng: 8.631451502637596};
+        var location = { {{ find_us.location_latitude }}, {{ find_us.location_longitude }} };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), {
           zoom: 14,
@@ -52,7 +52,7 @@
     <div class="custom-container h-100 my-5">
       <div class="row h-100">
         <div class="col-xl-12">
-          <h1>Hier finden Sie uns!</h1>
+          <h1>{{ find_us.header }}</h1>
         </div>
         <div class="col-xl-12">
           {% if accepted_external_services or request|cookie_group_accepted:"google_maps" %}

@@ -40,8 +40,8 @@
                    class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center align-items-center">
                 <div class="feature-box feature-box-custom-style">
                   <h3 class="feature-box-header">{{ service.title }} <br><span
-                    class="feature-box-detail-header">{% if service.detail_text %}
-                    {{ service.detail_title }}{% endif %}</span>
+                    class="feature-box-detail-header">
+                    {{ service.detail_title }}</span>
                   </h3>
                   <p>{{ service.text }}</p>
                 </div>
@@ -64,10 +64,19 @@
         <div class="row g-sm-4 g-3">
           {% for vehicle in vehicle_section.vehicles.all %}
             <div class="col-lg-6 col-sm-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-              <div id="vehicle1" class="card-body">
+              <div id="{{ vehicle.header|slugify }}" class="card-body">
                 <h5>{{ vehicle.header }}</h5>
               </div>
             </div>
+             <style>
+              #{{ vehicle.header|slugify }} {
+                background-image: url('{{ vehicle.image.url }}');
+                background-position: center; /* Center the image */
+                background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: cover;
+                height: 300px;
+              }
+            </style>
           {% endfor %}
         </div>
       </div>

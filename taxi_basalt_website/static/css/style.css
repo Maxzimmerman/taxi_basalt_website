@@ -1117,37 +1117,37 @@ header.sticky .navbar-nav .nav-item .nav-link:hover {
   }
 }
 
-#vehicle1 {
-  background-image: url("../images/limo.jpg");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  height: 300px;
-}
+/*#vehicle1 {*/
+/*  background-image: url("../images/limo.jpg");*/
+/*  background-position: center; !* Center the image *!*/
+/*  background-repeat: no-repeat; !* Do not repeat the image *!*/
+/*  background-size: cover;*/
+/*  height: 300px;*/
+/*}*/
 
-#vehicle2 {
-  background-image: url("../images/kombi.jpg");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  height: 300px;
-}
+/*#vehicle2 {*/
+/*  background-image: url("../images/kombi.jpg");*/
+/*  background-position: center; !* Center the image *!*/
+/*  background-repeat: no-repeat; !* Do not repeat the image *!*/
+/*  background-size: cover;*/
+/*  height: 300px;*/
+/*}*/
 
-#vehicle3 {
-  background-image: url("../images/vito.jpg");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  height: 300px;
-}
+/*#vehicle3 {*/
+/*  background-image: url("../images/vito.jpg");*/
+/*  background-position: center; !* Center the image *!*/
+/*  background-repeat: no-repeat; !* Do not repeat the image *!*/
+/*  background-size: cover;*/
+/*  height: 300px;*/
+/*}*/
 
-#vehicle4 {
-  background-image: url("../images/special.original1024.jpeg");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  height: 300px;
-}
+/*#vehicle4 {*/
+/*  background-image: url("../images/special.original1024.jpeg");*/
+/*  background-position: center; !* Center the image *!*/
+/*  background-repeat: no-repeat; !* Do not repeat the image *!*/
+/*  background-size: cover;*/
+/*  height: 300px;*/
+/*}*/
 
 /* fixed footer schange */
 footer.fixed-footer {
@@ -1577,4 +1577,8 @@ footer.fixed-footer .footer-social li a:hover {
 
 .cookie-bar-declined-or-accepted-text {
   background: none!important;
+}
+
+.imprint-text {
+  font-weight: bold;
 }

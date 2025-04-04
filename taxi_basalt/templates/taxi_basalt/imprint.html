@@ -10,23 +10,23 @@
           <div class="home-content" style="display: flex; flex-direction: column; margin-top: 100px"
                data-aos="fade-right" data-aos-duration="1500">
             <div>
-              <h1> Impressum </h1>
+              <h1> {{ imprint.header }} </h1>
 
-              <p>Jupiter Taxi GmbH</p>
-              <p>- Taxi Basalt -</p>
-              <p>Basaltstraße 19</p>
-              <p>60487 Frankfurt</p>
+              <p>{{ imprint.firm_name_part_one }}</p>
+              <p>{{ imprint.firm_name_part_two }}</p>
+              <p>{{ imprint.firm_address_part_one}}</p>
+              <p>{{ imprint.firm_address_part_two }}</p>
 
-              <p><span style="font-weight: bold">Fon: </span>069 97074980</p>
-              <p><span style="font-weight: bold">Fax: </span> 069 97074970</p>
-              <p><span style="font-weight: bold">Mobil: </span> 0171 3504742</p>
+              <p><span class="imprint-text">{{ imprint.phone_header }} </span>{{ imprint.phone_text }}</p>
+              <p><span class="imprint-text">{{ imprint.fax_header }} </span> {{ imprint.fax_text }}</p>
+              <p><span class="imprint-text">{{ imprint.mobile_header }} </span> {{ imprint.mobile_text }}</p>
 
-              <p><span style="font-weight: bold">E-Mail: </span> info@taxibasalt19.de</p>
-              <p><span style="font-weight: bold">Web: </span> www.taxibasalt19.de</p>
+              <p><span class="imprint-text">{{ imprint.email_header }}</span> {{ imprint.email_text }}</p>
+              <p><span class="imprint-text">{{ imprint.website_header }} </span> {{ imprint.website_text }}</p>
 
-              <p><span style="font-weight: bold">Geschäftsführer: </span> Frank Benner</p>
+              <p><span class="imprint-text">{{ imprint.ceo_header }} </span> {{ imprint.ceo_text }}</p>
 
-              <p><span style="font-weight: bold">Handelsregister: </span> <br> Amtsgericht Frankfurt am Main, HRB 76268 </p>
+              <p><span class="imprint-text" style="font-weight: bold">{{ imprint.commercial_register_header }} </span> <br> {{ imprint.commercial_register_text }}</p>
             </div>
           </div>
         </div>
