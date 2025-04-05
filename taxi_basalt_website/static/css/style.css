@@ -419,10 +419,16 @@ header.sticky .navbar-nav .nav-item .nav-link:hover {
 
 .navbar .navbar-nav .nav-item .nav-link {
   text-transform: capitalize;
-  color: rgba(var(--content-color), 1);
+  color: rgba(var(--content-color), 2);
   font-weight: 500;
   font-size: calc(14px + 4 * (100vw - 320px) / 1600);
   padding: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .navbar .navbar-nav .nav-item .nav-link {
+    color: white;
+  }
 }
 
 .navbar .navbar-nav .nav-item.active {
@@ -1441,7 +1447,8 @@ footer.fixed-footer .footer-social li a:hover {
   font-size: 15px;
   word-wrap: break-word; /* Breaks long words */
   overflow-wrap: break-word; /* Ensures wrapping */
-  white-space: normal;"
+  white-space: normal;
+"
 }
 
 .firm-logo {
@@ -1576,7 +1583,7 @@ footer.fixed-footer .footer-social li a:hover {
 }
 
 .cookie-bar-declined-or-accepted-text {
-  background: none!important;
+  background: none !important;
 }
 
 .imprint-text {

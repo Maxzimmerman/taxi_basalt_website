@@ -7,10 +7,9 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpWI7FCFbMNDiIlOWmPxrJd_n9MHmBSlg&callback=initMap">
     </script>
-
     <script type="text/javascript">
       function initMap() {
-        var location = { {{ find_us.location_latitude }}, {{ find_us.location_longitude }} };
+        var location = { lat: {{ find_us.location_latitude|floatformat:"6" }}, lng: {{ find_us.location_longitude|floatformat:"6" }} };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), {
           zoom: 14,
