@@ -41,7 +41,7 @@
                 <div class="feature-box feature-box-custom-style">
                   <h3 class="feature-box-header">{{ service.title }} <br><span
                     class="feature-box-detail-header">
-                    {{ service.detail_title }}</span>
+                    {% if service.detail_title %}{{ service.detail_title }} {% endif %}</span>
                   </h3>
                   <p>{{ service.text }}</p>
                 </div>
