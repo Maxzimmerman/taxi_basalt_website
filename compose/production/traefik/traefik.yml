@@ -41,7 +41,6 @@ http:
     web-media-router:
       rule: '(Host(`doughtrack.com`) || Host(`www.doughtrack.com`)) && PathPrefix(`/media/`)'
       entryPoints:
-        - web
         - web-secure
       middlewares:
         - csrf
