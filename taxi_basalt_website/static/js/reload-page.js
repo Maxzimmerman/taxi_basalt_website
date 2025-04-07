@@ -4,7 +4,7 @@ setTimeout(() => {
         e.addEventListener('click', () => {
             setTimeout(() => {
                 location.reload();
-            }, 100)
+            }, 300)
         })
     })
 }, 300);
