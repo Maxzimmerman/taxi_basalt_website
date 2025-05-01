@@ -28,7 +28,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: 'Host(`doughtrack.com`) || Host(`www.doughtrack.com`)'
+      rule: 'Host(`taxibasalt19.de`) || Host(`www.taxibasalt19.de`)'
       entryPoints:
         - web-secure
       middlewares:
@@ -39,7 +39,7 @@ http:
         certResolver: letsencrypt
 
     web-media-router:
-      rule: '(Host(`doughtrack.com`) || Host(`www.doughtrack.com`)) && PathPrefix(`/media/`)'
+      rule: '(Host(`taxibasalt19.de`) || Host(`www.taxibasalt19.de`)) && PathPrefix(`/media/`)'
       entryPoints:
         - web-secure
       middlewares:
