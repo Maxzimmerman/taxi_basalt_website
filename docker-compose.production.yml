@@ -30,7 +30,7 @@ services:
       - web
       - django-taxi
     labels:
-      - "traefik.http.routers.django-taxi.rule=Host(`doughtrack.com`)"
+      - "traefik.http.routers.django-taxi.rule=Host(`taxibasalt19.de`)"
       - traefik.http.routers.django-taxi.tls=true
       - traefik.http.routers.django-taxi.tls.certresolver=le-resolver
       - traefik.http.services.django-taxi.loadbalancer.server.port=5000
@@ -75,7 +75,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.services.nginx-taxi.loadbalancer.server.port=80
-      - "traefik.http.routers.nginx-taxi.rule=Host(`doughtrack.com`) && PathPrefix(`/media/`)"
+      - "traefik.http.routers.nginx-taxi.rule=Host(`taxibasalt19.de`) && PathPrefix(`/media/`)"
       - traefik.http.routers.nginx-taxi.tls=true
       - traefik.http.routers.nginx-taxi.tls.certresolver=le-resolver
       - traefik.http.routers.nginx-taxi.middlewares=csrf

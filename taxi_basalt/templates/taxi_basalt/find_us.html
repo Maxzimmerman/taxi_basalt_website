@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static cookie_consent_tags %}
+{% load static cookie_consent_tags l10n %}
 
 {% block inline_javascript %}
   <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
@@ -9,7 +9,7 @@
     </script>
     <script type="text/javascript">
       function initMap() {
-        var location = { lat: {{ find_us.location_latitude|floatformat:"6" }}, lng: {{ find_us.location_longitude|floatformat:"6" }} };
+        var location = { lat: {{ find_us.location_latitude }}, lng: {{ find_us.location_longitude }} };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), {
           zoom: 14,
