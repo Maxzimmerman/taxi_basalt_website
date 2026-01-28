@@ -7,7 +7,6 @@ networks:
 volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
-  production_traefik: {}
   production_django_media: {}
 
 services:
@@ -30,13 +29,15 @@ services:
       - web
       - django-taxi
     labels:
+      - "traefik.enable=true"
       - "traefik.http.routers.django-taxi.rule=Host(`taxibasalt19.de`)"
-      - traefik.http.routers.django-taxi.tls=true
-      - traefik.http.routers.django-taxi.tls.certresolver=le-resolver
-      - traefik.http.services.django-taxi.loadbalancer.server.port=5000
-      - traefik.http.middlewares.csrf.headers.hostsproxyheaders='X-CSRFToken'
-      - traefik.http.routers.django-taxi.middlewares=csrf
-      - traefik.http.routers.django-taxi.entrypoints=websecure
+      - "traefik.http.routers.django-taxi.tls=true"
+      - "traefik.http.routers.django-taxi.tls.certresolver=le-resolver"
+      - "traefik.http.services.django-taxi.loadbalancer.server.port=5000"
+      - "traefik.http.routers.django-taxi.entrypoints=websecure"
+      - "traefik.docker.network=web"
+      - "traefik.http.middlewares.csrf-headers.headers.hostsproxyheaders=X-CSRFToken"
+      - "traefik.http.routers.django-taxi.middlewares=csrf-headers"
 
   postgres:
     build:
@@ -51,14 +52,14 @@ services:
     networks:
       - django-taxi
     labels:
-      - traefik.enable=false
+      - "traefik.enable=false"
 
   redis:
     image: docker.io/redis:6
     networks:
       - django-taxi
     labels:
-      - traefik.enable=false
+      - "traefik.enable=false"
 
   nginx:
     build:
@@ -73,10 +74,11 @@ services:
       - django-taxi
       - web
     labels:
-      - traefik.enable=true
-      - traefik.http.services.nginx-taxi.loadbalancer.server.port=80
+      - "traefik.enable=true"
+      - "traefik.http.services.nginx-taxi.loadbalancer.server.port=80"
       - "traefik.http.routers.nginx-taxi.rule=Host(`taxibasalt19.de`) && PathPrefix(`/media/`)"
-      - traefik.http.routers.nginx-taxi.tls=true
-      - traefik.http.routers.nginx-taxi.tls.certresolver=le-resolver
-      - traefik.http.routers.nginx-taxi.middlewares=csrf
-      - traefik.http.routers.nginx-taxi.entrypoints=websecure
+      - "traefik.http.routers.nginx-taxi.tls=true"
+      - "traefik.http.routers.nginx-taxi.tls.certresolver=le-resolver"
+      - "traefik.http.routers.nginx-taxi.entrypoints=websecure"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.nginx-taxi.middlewares=csrf-headers"
